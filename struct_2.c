@@ -1,7 +1,13 @@
 /*
 함수포인터와 구조체 동시사용*/
+#include <stdio.h>
+static void open(void);
+static void close(void);
+static void read(void);
+static void write(void);
 
-typedef enum 
+
+enum 
 {
     LCD_DRIVER,
     SEGMENT_DRIVER
@@ -15,5 +21,50 @@ typedef struct {
     void (*read)(void);
     void (*write)(void);
 }driver_t;
+
+
+static driver_t lcd =
+{
+    .driver_id = LCD_DRIVER,
+    .open = open,
+    .close = close,
+    .read = read,
+    .write = write
+};
+
+
+
+
+
+
+void main(void)
+{
+    lcd.open();
+    lcd.close();
+    lcd.read();
+    lcd.write();
+}
+
+static void open(void)
+{
+    printf("open\n\r");
+}
+
+static void close(void)
+{
+    printf("close\n\r");
+}
+
+static void read(void)
+{
+    printf("read\n\r");
+}
+
+
+static void write(void)
+{
+    printf("write\n\r");
+}
+
 
 
