@@ -5,7 +5,8 @@ static bool close(void);
 static bool write(char *buffer, short length);
 static bool read(char *data);
 
-static uart_t *init_uart1(void)
+//extern static uart_t *init_uart1(void)
+extern uart_t *init_uart1(void)
 {
     static uart_t uart;
     uart.open = open;
@@ -18,6 +19,7 @@ static uart_t *init_uart1(void)
 static bool open(void)
 {
     printf("uart open\n\r");
+    fflush(stdout);
     return 1 ;
 }
 

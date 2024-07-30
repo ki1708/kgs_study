@@ -21,4 +21,4 @@ typedef struct
     read_t read;
 }uart_t;
 
-extern uart_t *init_uart1(void); // 외부에서 사용할수 있도록 extern 사용선언. 
+//extern uart_t *init_uart1(void); // 외부에서 사용할수 있도록 extern 사용선언. -> 라이브러리만들기위해서 c에서만 static함수로 선언
